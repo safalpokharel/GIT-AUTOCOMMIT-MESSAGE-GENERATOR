@@ -1,5 +1,5 @@
 import subprocess
-from rich import print
+from rich import print as rprint
 from rich.panel import Panel
 from rich.console import Console
 def is_git_repo():
