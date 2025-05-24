@@ -30,7 +30,7 @@ def main():
 
                     response = client.models.generate_content(
                         model="gemini-2.0-flash",
-                        contents="Explain how AI works in a few words",
+                        contents=final_prompt,
                     )
 
                     print(response.text)
@@ -42,7 +42,7 @@ def main():
                     print("\n✅ Suggested Commit Message:\n")
                     commit_msg = response.text
                     print(Panel(commit_msg, style="green"))
-                    edit_msg = input("Do you want to edit the message? Type Y or N").strip().upper()
+                    edit_msg = input("Do you want to edit the message? Type Y or N:  ").strip().upper()
                     if edit_msg == "Y":
                         with open("edit_commit.txt", "w") as file:
                             file.write(commit_msg)
