@@ -3,12 +3,15 @@ from rich import print
 from rich.panel import Panel
 from rich.console import Console
 def is_git_repo():
-    response = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], capture_output=True, text=True)
-    if response.returncode == 0 and response.stdout.strip() == "true":
-        return True
-    else:
-        print('❌ Not a Git repository. Please navigate into a Git repo and try again.')
-        return False
+    try:
+        response = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], capture_output=True, text=True)
+        if response.returncode == 0 and response.stdout.strip() == "true":
+            return True
+        else:
+            print('❌ Not a Git repository. Please navigate into a Git repo and try again.')
+            return False
+    except Exception as e:
+        print(e)
 
 
 def has_staged_changes():
@@ -23,5 +26,8 @@ def has_staged_changes():
 
 
 def get_git_diff():
-    diff = subprocess.run(["git", "diff", "--cached"], capture_output=True, text=True)
-    return diff.stdout
+    try:
+        diff = subprocess.run(["git", "diff", "--cached"], capture_output=True, text=True)
+        return diff.stdout
+    except Exception as e:
+        print(e)
