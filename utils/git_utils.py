@@ -1,7 +1,4 @@
 import subprocess
-from rich import print as rprint
-from rich.panel import Panel
-from rich.console import Console
 def is_git_repo():
     try:
         response = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], capture_output=True, text=True)
