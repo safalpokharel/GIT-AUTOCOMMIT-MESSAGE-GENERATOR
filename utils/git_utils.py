@@ -1,4 +1,5 @@
 import subprocess
+
 def is_git_repo():
     try:
         response = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], capture_output=True, text=True)
