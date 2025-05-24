@@ -5,7 +5,7 @@ from rich.panel import Panel
 from rich.console import Console
 import os
 import subprocess
-from utils.git_utils import is_git_repo, has_staged_changes, get_git_diff
+from utils.git_utils import is_a_git_repo, has_staged_changes, get_git_diff
 
 load_dotenv()
 
@@ -13,7 +13,7 @@ load_dotenv()
 rprint("🎉 WELCOME TO AUTO COMMIT MESSAGE GENERATOR")
 
 def main():
-    if is_git_repo():
+    if is_a_git_repo():
         if has_staged_changes():
             diff = get_git_diff()
 
