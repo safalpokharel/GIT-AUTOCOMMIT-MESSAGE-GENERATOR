@@ -51,10 +51,11 @@ def main():
                             commit_msg = file.read().strip()
 
                     subprocess.run(["git", "commit", "-m", commit_msg])
-                    os.remove("edit_commit.txt")
+                    if os.path.exists("edit_commit.txt"):
+                        os.remove("edit_commit.txt")
 
                 except Exception as e :
-                    print(f"API CALL ERROR!: {e}")
+                    print(e)
                 
 
 
