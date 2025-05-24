@@ -1,0 +1,4 @@
+Here's a summary of the staged changes:
+{git_diff}
+
+Based on this, write a concise and descriptive commit message.
